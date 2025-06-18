@@ -18,6 +18,7 @@ const FeatureCard = ({
   icon,
   title,
   degree,
+  cgpa,
   duration,
   content1,
   content2,
@@ -25,10 +26,10 @@ const FeatureCard = ({
 }) => (
   <div
     className={`flex flex-row p-6 rounded-[20px]
-	${index === educationList.length - 1 ? "mb-0" : "mb-6"} feature-card`}
+  ${index === educationList.length - 1 ? "mb-0" : "mb-6"} feature-card`}
   >
     <div
-      className={`w-[64px] h-[64px] rounded-full ${styles.flexCenter} bg-dimBlue`}
+      className={`w-[80px] h-[80px] rounded-full ${styles.flexCenter} bg-dimBlue`}
     >
       <img src={icon} alt="icon" className="w-[80%] h-[80%] object-contain" />
     </div>
@@ -39,25 +40,32 @@ const FeatureCard = ({
       <p className="font-poppins font-normal text-white text-[16px] leading-[30px] mb-1 ">
         {degree}
       </p>
+      {/* Add CGPA display here, adjust styling as needed */}
+      {cgpa && ( // This ensures it only shows if cgpa exists
+        <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1">
+          CGPA: {cgpa}
+        </p>
+      )}
       <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1">
         {duration}
       </p>
-      <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1">   
-      ● {content1}
+      <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1">
+        ● {content1}
       </p>
       {content2 && (
-        <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1">     
-      ● {content2}
+        <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1">
+          ● {content2}
         </p>
       )}
     </div>
   </div>
 );
+// FIX END
 
 const Education = () => {
   return (
     <section id="education">
-      <h1 className="flex-1 font-poppins font-semibold ss:text-[55px] text-[45px] text-white ss:leading-[80px] leading-[80px]">
+      <h1 className="font-poppins font-semibold ss:text-[55px] text-[45px] text-white ss:leading-[80px] leading-[80px] text-center w-full">
         Education
       </h1>
       <motion.div

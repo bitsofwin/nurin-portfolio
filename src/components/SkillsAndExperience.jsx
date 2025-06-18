@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 
 export const SkillIcon = ({ icon, name }) => {
   return (
-    <div className="flex flex-col">
-      <span className="text-white text-[30px] hover:text-teal-200">
+    <div className="flex flex-col items-center w-full">
+      <span className="text-white text-[30px] hover:text-yellow-200">
         {React.createElement(icon)}
       </span>
-      <p className="font-poppins text-dimWhite text-[12px] mt-2">{name}</p>
+      <p className="font-poppins text-dimWhite text-[12px] mt-2 text-center">{name}</p>
     </div>
   );
 };
@@ -45,7 +45,7 @@ const Content = ({ text, link }) => {
           <a href={link} target="_blank">
             <BsLink45Deg
               size="1rem"
-              className="inline hover:text-teal-200"
+              className="inline hover:text-yellow-200"
             ></BsLink45Deg>
           </a>
         ) : (
@@ -59,8 +59,8 @@ const Content = ({ text, link }) => {
 const ExperienceCard = (props) => {
   return (
     <motion.div
-    whileInView={{ y: [-20, 0], opacity: [0, 1] }}
-    transition={{ duration: 1 }}
+      whileInView={{ y: [-20, 0], opacity: [0, 1] }}
+      transition={{ duration: 1 }}
     >
       <div className="flex flex-row items-center mb-6">
         <img
@@ -71,6 +71,11 @@ const ExperienceCard = (props) => {
         <h4 className="font-poppins font-semibold text-[20px] text-gradient leading-[32px] ml-2">
           {props.organisation}
         </h4>
+        {props.link && props.linkIcon && (
+          <a href={props.link} target="_blank" rel="noopener noreferrer" className="ml-2 -mt-1 inline-flex items-center">
+            {React.createElement(props.linkIcon, { className: "inline text-blue-500 ", size: 20 })}
+          </a>
+        )}
       </div>
       <ol className="relative border-l border-gray-200 dark:border-gray-700 ml-6">
         {props.positions.map((position, index) => (
@@ -81,7 +86,7 @@ const ExperienceCard = (props) => {
             } ml-4`}
           >
             <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+            <h3 className="text-lg font-semibold text-white dark:text-white">
               {position.title}
             </h3>
             <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -101,7 +106,7 @@ const ExperienceCard = (props) => {
 const SkillsAndExperience = () => {
   return (
     <section id="skills" className="mb-12">
-      <h1 className="flex-1 font-poppins font-semibold ss:text-[55px] text-[45px] text-white ss:leading-[80px] leading-[80px]">
+      <h1 className="font-poppins font-semibold ss:text-[55px] text-[45px] text-white ss:leading-[80px] leading-[80px] text-center w-full">
         Skills & Experience
       </h1>
       <div

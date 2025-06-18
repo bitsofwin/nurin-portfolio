@@ -7,13 +7,13 @@
 :root {
   --black-gradient: linear-gradient(
     144.39deg,
-    #ffffff -278.56%,
-    #6d6d6d -78.47%,
+    #2c0f24 -278.56%,
+    #6d214f -78.47%,
     #11101d 91.61%
   );
-  --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
-  --scrollbar-primary: #00040f;
-  --scrollbar-secondary: lightblue;
+  --card-shadow: 0px 20px 100px -10px rgba(100, 50, 80, 0.3);
+  --scrollbar-primary: #1a0f1f;
+  --scrollbar-secondary: #f2994a;
 }
 
 * {
@@ -43,14 +43,10 @@
 }
 
 .text-gradient {
-  background: radial-gradient(
-    64.18% 64.18% at 71.16% 35.69%,
-    #def9fa 0.89%,
-    #bef3f5 17.23%,
-    #9dedf0 42.04%,
-    #7de7eb 55.12%,
-    #5ce1e6 71.54%,
-    #33bbcf 100%
+  background: linear-gradient(
+    90deg,
+    #f2994a 0%,
+    #eb5757 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -61,20 +57,17 @@
 .bg-blue-gradient {
   background: linear-gradient(
     157.81deg,
-    #def9fa -43.27%,
-    #bef3f5 -21.24%,
-    #9dedf0 12.19%,
-    #7de7eb 29.82%,
-    #5ce1e6 51.94%,
-    #33bbcf 90.29%
+    #f2994a -43.27%,
+    #f2c94c -21.24%,
+    #eb5757 90.29%
   );
 }
 
 .bg-black-gradient {
   background: linear-gradient(
     144.39deg,
-    #ffffff -278.56%,
-    #6d6d6d -78.47%,
+    #2c0f24 -278.56%,
+    #6d214f -78.47%,
     #11101d 91.61%
   );
 }
@@ -82,8 +75,8 @@
 .bg-black-gradient-2 {
   background: linear-gradient(
     -168.39deg,
-    #ffffff -278.56%,
-    #6d6d6d -78.47%,
+    #2c0f24 -278.56%,
+    #6d214f -78.47%,
     #11101d 91.61%
   );
 }
@@ -97,11 +90,11 @@
 }
 
 .bg-discount-gradient {
-  background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
+  background: linear-gradient(125.17deg, #3d1f3f 0%, #11101d 100%);
 }
 
 .box-shadow {
-  box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+  box-shadow: 0px 20px 100px -10px rgba(100, 50, 80, 0.3);
 }
 
 .sidebar {
@@ -149,17 +142,17 @@
 }
 
 .blue__gradient {
-  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #3a1c42 100%);
   filter: blur(123px);
 }
 
 .pink__gradient {
-  background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
+  background: linear-gradient(90deg, #f2994a 0%, #eb5757 100%);
   filter: blur(900px);
 }
 
 .white__gradient {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.3);
   filter: blur(750px);
 }
 
@@ -172,7 +165,7 @@
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 100px;
-  background-color: rgb(10, 10, 10);
+  background-color: #3a1c42;
   color: #fff;
   font-size: 14px;
   text-align: center;
@@ -193,7 +186,7 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent black transparent;
+  border-color: transparent transparent #3a1c42 transparent;
 }
 
 .tooltip:hover .tooltiptext {
@@ -210,8 +203,12 @@
   -webkit-box-orient: vertical;
 }
 
-@layer utilities{
-  .nav-styles{
+.bg-vintage-brown {
+  background: rgba(32, 15, 31, 0.7); /* #2c0f24 with 70% opacity */
+}
+
+@layer utilities {
+  .nav-styles {
     @apply w-full fixed top-0 left-0 flex justify-between items-center bg-opacity-80 shadow-lg z-50 backdrop-blur-md border-b border-white/10;
   }
 }

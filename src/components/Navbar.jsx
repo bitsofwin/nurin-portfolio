@@ -34,7 +34,7 @@ const Navbar = () => {
       <a href="#home">
         <img
           src={parthmittal}
-          alt="Parth Mittal"
+          alt="Nurin Ilyana"
           className="w-[80px] h-[80px]"
         />
       </a>
@@ -44,15 +44,13 @@ const Navbar = () => {
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
-            className={`font-poppins
-            font-normal
-            cursor-pointer
-            text-[16px]
-            ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}
-            text-white hover:text-teal-200`}
+            className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? "mr-0" : "mr-10"} text-white transition-all duration-300 relative group`}
             onClick={() => scrollToSection(nav.id)}
           >
-            {nav.title}
+            <span className="group-hover:text-[#f2994a] group-hover:scale-105 group-hover:drop-shadow-lg transition-all duration-300">
+              {nav.title}
+            </span>
+            <span className="absolute left-0 -bottom-1 w-0 h-[3px] bg-gradient-to-r from-[#f2994a] via-[#eb5757] to-[#6d214f] rounded-full group-hover:w-full transition-all duration-300"></span>
           </li>
         ))}
       </ul>
@@ -70,22 +68,18 @@ const Navbar = () => {
         />
 
         <div
-          className={`${toggle ? "flex" : "hidden"} p-6 bg-black-gradient
-        absolute top-20 right-0 mx-4 my-2
-        min-w-[140px] rounded-xl sidebar`}
+          className={`${toggle ? "flex" : "hidden"} p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
         >
           <ul className="list-none flex flex-col justify-end items-center flex-1">
             {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
-                className={`font-poppins
-                font-normal
-                cursor-pointer
-                text-[16px]
-                ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}
-                text-white`}
+                className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? "mb-0" : "mb-4"} text-white transition-all duration-300 group`}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <a href={`#${nav.id}`} className="group-hover:text-[#f2994a] group-hover:scale-105 group-hover:drop-shadow-lg transition-all duration-300 relative">
+                  {nav.title}
+                  <span className="absolute left-0 -bottom-1 w-0 h-[3px] bg-gradient-to-r from-[#f2994a] via-[#eb5757] to-[#6d214f] rounded-full group-hover:w-full transition-all duration-300"></span>
+                </a>
               </li>
             ))}
           </ul>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"; // Added useRef
+import React, { useState, useEffect, useRef } from "react";
 import { BsLink45Deg } from "react-icons/bs";
 import { achievements } from "../constants";
 import { AiFillGithub } from "react-icons/ai";
@@ -8,8 +8,12 @@ import styles from "../style";
 
 const Achievements = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [cardTotalWidth, setCardTotalWidth] = useState(0); // Added state for card width
-  const containerRef = useRef(null); // Added ref
+  const [cardTotalWidth, setCardTotalWidth] = useState(0);
+  const containerRef = useRef(null);
+
+  // Popup state
+  const [popupImages, setPopupImages] = useState(null); // array of images
+  const [popupImgIndex, setPopupImgIndex] = useState(0);
 
   useEffect(() => {
     const updateCardWidth = () => {
@@ -17,19 +21,14 @@ const Achievements = () => {
         const card = containerRef.current.querySelector('.achievement-card');
         if (card) {
           const cardWidth = card.offsetWidth;
-          const cardMargin = parseInt(window.getComputedStyle(card).marginRight, 10); 
-
-          setCardTotalWidth(cardWidth + cardMargin); 
+          const cardMargin = parseInt(window.getComputedStyle(card).marginRight, 10);
+          setCardTotalWidth(cardWidth + cardMargin);
         }
       }
     };
-
-    updateCardWidth(); 
-    window.addEventListener("resize", updateCardWidth); 
-
-    return () => {
-      window.removeEventListener("resize", updateCardWidth); 
-    };
+    updateCardWidth();
+    window.addEventListener("resize", updateCardWidth);
+    return () => window.removeEventListener("resize", updateCardWidth);
   }, []);
 
   const handleNext = () => {
@@ -44,18 +43,29 @@ const Achievements = () => {
     }
   };
 
+  // Popup navigation
+  const handlePopupNext = (e) => {
+    e.stopPropagation();
+    setPopupImgIndex((idx) => (popupImages && idx < popupImages.length - 1 ? idx + 1 : idx));
+  };
+  const handlePopupPrev = (e) => {
+    e.stopPropagation();
+    setPopupImgIndex((idx) => (popupImages && idx > 0 ? idx - 1 : idx));
+  };
+  const closePopup = () => {
+    setPopupImages(null);
+    setPopupImgIndex(0);
+  };
+
   const isNextDisabled = currentIndex >= achievements.length - 1;
   const isPrevDisabled = currentIndex === 0;
 
   return (
-    <section
-      className="bg-primary overflow-hidden text-white mt-5 md:mt-10 relative"
-      id="achievements"
-    >
+    <section className="bg-primary overflow-hidden text-white mt-5 md:mt-10 relative" id="achievements">
       <div className={`bg-primary ${styles.flexCenter} ${styles.paddingX}`}>
         <div className={`${styles.boxWidth}`}>
-          <h1 className="flex-1 font-poppins font-semibold ss:text-[55px] text-[45px] text-white ss:leading-[80px] leading-[80px]">
-            Achievements
+          <h1 className="font-poppins font-semibold ss:text-[55px] text-[45px] text-white ss:leading-[80px] leading-[80px] text-center w-full">
+            Awards & Certificates
           </h1>
         </div>
       </div>
@@ -67,11 +77,19 @@ const Achievements = () => {
               ref={containerRef}
               className="flex transition-transform duration-500 ease-in-out"
               style={{
-                transform: `translateX(-${currentIndex * cardTotalWidth}px)`, // Updated to use card width
+                transform: `translateX(-${currentIndex * cardTotalWidth}px)`,
               }}
             >
               {achievements.map((achievement, index) => (
-                <AchievementCard key={index} {...achievement} />
+                <AchievementCard
+                  key={index}
+                  {...achievement}
+                  onCardClick={() =>
+                    achievement.images && achievement.images.length > 0
+                      ? (setPopupImages(achievement.images), setPopupImgIndex(0))
+                      : null
+                  }
+                />
               ))}
             </div>
             <div className="flex justify-end mb-4">
@@ -93,25 +111,82 @@ const Achievements = () => {
           </div>
         </div>
       </div>
+      {/* Popup Modal */}
+      {popupImages && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={closePopup}
+        >
+          <div className="relative flex flex-col items-center" onClick={e => e.stopPropagation()}>
+            <img
+              src={popupImages[popupImgIndex]}
+              alt="Achievement"
+              className="max-w-[90vw] max-h-[80vh] rounded-lg shadow-2xl"
+            />
+            <div className="flex justify-between w-full mt-4">
+              <button
+                onClick={handlePopupPrev}
+                disabled={popupImgIndex === 0}
+                className="text-white text-3xl px-4 py-2 disabled:opacity-50"
+              >
+                &#8592;
+              </button>
+              <button
+                onClick={handlePopupNext}
+                disabled={popupImages && popupImgIndex === popupImages.length - 1}
+                className="text-white text-3xl px-4 py-2 disabled:opacity-50"
+              >
+                &#8594;
+              </button>
+            </div>
+            <button
+              onClick={closePopup}
+              className="absolute top-2 right-2 text-white text-2xl bg-black bg-opacity-50 rounded-full px-3 py-1"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
 
 const AchievementCard = (props) => {
   return (
-    <div className="achievement-card flex-shrink-0 flex flex-col md:w-[400px] w-[320px] justify-around px-6 py-4 rounded-[20px] md:mr-10 mr-6 my-5 transition-colors duration-300 transform border hover:border-transparent dark:border-gray-700 dark:hover:border-transparent">
+    <div
+      className="achievement-card feature-card flex-shrink-0 flex flex-col md:w-[400px] w-[320px] justify-around px-6 py-4 rounded-[20px] md:mr-10 mr-6 my-5 transition-colors duration-300 transform border hover:border-transparent dark:border-gray-700 dark:hover:border-transparent cursor-pointer"
+      onClick={props.onCardClick}
+    >
       <img
         src={props.icon}
         alt={props.event}
         className="w-[45px] h-[45px] rounded-full mt-1 mb-1"
       />
       <div className="flex flex-col justify-end mt-4 mb-1">
-        <p className="font-poppins font-normal text-xl text-white leading-[24px] mb-2">
+        <p className="font-poppins font-semibold text-xl text-lg text-gradient leading-[24px] mb-2">
           {props.event}
         </p>
-        <p className="font-poppins italic font-normal text-lg text-gradient mb-3">
+        <p className="font-poppins italic font-normal text-white mb-2">
           {props.position}
         </p>
+        {/* Duration always shown */}
+        {props.duration && (
+          <p className="font-poppins font-normal text-[14px] text-dimWhite mb-2">
+            {props.duration}
+          </p>
+        )}
+        {/* Youtube icon under duration if present */}
+        {props.youtube && (
+          <a
+            className="inline-flex items-center mb-2 hover:text-yellow-200"
+            href={props.youtube}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaYoutube size="1.5rem" className="inline" />
+          </a>
+        )}
         {props.content1 && (
           <p className="font-poppins font-normal text-dimWhite text-sm mb-1">
             🚀 {props.content1}
@@ -131,7 +206,7 @@ const AchievementCard = (props) => {
       <div className="flex flex-row mb-2 font-poppins font-normal text-dimWhite">
         {props.article && (
           <a
-            className="inline-flex items-center mr-2 hover:text-teal-200"
+            className="inline-flex items-center mr-2 hover:text-yellow-200"
             href={props.article}
             target="_blank"
             rel="noopener noreferrer"
@@ -139,19 +214,9 @@ const AchievementCard = (props) => {
             <TiNews size="1.5rem" className="inline" />
           </a>
         )}
-        {props.youtube && (
-          <a
-            className="inline-flex items-center mr-2 hover:text-teal-200"
-            href={props.youtube}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaYoutube size="1.5rem" className="inline" />
-          </a>
-        )}
         {props.github && (
           <a
-            className="inline-flex items-center mr-2 hover:text-teal-200"
+            className="inline-flex items-center mr-2 hover:text-yellow-200"
             href={props.github}
             target="_blank"
             rel="noopener noreferrer"
@@ -161,7 +226,7 @@ const AchievementCard = (props) => {
         )}
         {props.project && (
           <a
-            className="inline-flex items-center hover:text-teal-200"
+            className="inline-flex items-center hover:text-yellow-200"
             href={props.project}
             target="_blank"
             rel="noopener noreferrer"

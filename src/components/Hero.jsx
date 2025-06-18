@@ -1,7 +1,7 @@
 import styles from "../style";
 import LetsConnect from "./LetsConnect";
 import Lottie from "react-lottie-player";
-import animationData from "../lotties/person-coding.json";
+import animationData from "../lotties/girl-working.json";
 import { aboutMe } from "../constants";
 
 
@@ -45,9 +45,9 @@ const Hero = () => {
       </div>
 
       <div
-        className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}
+        className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative items-center justify-center`}
       >
-        <div className="relative z-index-[5] h-[90%] w-[85%]">
+        <div className="relative z-index-[5] h-[80%] w-[80%] md:h-[90%] md:w-[85%] mx-auto flex items-center justify-center md:mt-0 mt-8">
           <Lottie {...defaultOptions} />
         </div>
         <div className="absolute z-[1] w-[50%] h-[50%] rounded-full bottom-40 white__gradient"></div>

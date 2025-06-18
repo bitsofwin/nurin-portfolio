@@ -1,5 +1,5 @@
 import {
-  nitk,
+  uitm,
   cluboard,
   cash_flow,
   gdsc,
@@ -7,17 +7,17 @@ import {
   ecell,
   genesis,
   portfolio,
-  cdc,
-  chargeswap,
-  placeicon,
-  recruitment,
+  housepredict,
+  facialdetection,
+  cryptovault,
+  madrasah,
   huntly,
-  oracle,
-  comicify_ai,
-  greentrust,
-  averlon,
+  twomeet,
+  dtwins,
+  xrent,
+  mumumiya,
   devfolio,
-  pba,
+  kmkt,
   ethglobal,
   polkadot,
   lightspeed,
@@ -84,8 +84,8 @@ import { FaGolang } from "react-icons/fa6";
 import { DiCss3, DiJava, DiMsqlServer, DiRuby } from "react-icons/di";
 
 export const resumeLink = "";
-export const callToAction = "https://www.linkedin.com/in/<your-linkedin-id>/";
-export const repoLink = "https://github.com/mittal-parth/personal-portfolio";
+export const callToAction = "https://www.linkedin.com/in/nurinilyana82/";
+export const repoLink = "https://github.com/Nurinnnn12/nurin-portfolio";
 
 export const navLinks = [
   {
@@ -103,10 +103,6 @@ export const navLinks = [
   {
     id: "projects",
     title: "Projects",
-  },
-  {
-    id: "openSource",
-    title: "Open Source",
   },
   {
     id: "extraCurricular",
@@ -236,50 +232,6 @@ export const projects = [
   }
 ];
 
-// Add links to blogs here
-export const blogPosts = [
-  {
-    id: "post-1",
-    title: "Blog Post 01 - Title",
-    link: "#",
-    date: new Date().toLocaleDateString(), // Can be edited to any string format
-    image: "https://via.placeholder.com/600/92c952",
-    tags: [
-      {
-        id: "tag-1",
-        name: "tag 01",
-      },
-      {
-        id: "tag-2",
-        name: "tag 03",
-      },
-      {
-        id: "tag-3",
-        name: "tag 03",
-      },
-    ],
-  },
-];
-
-// Highlight your GitHub stats like - Organisation, Issues Opened, Pull Requests etc.
-export const stats = [
-  {
-    id: "stats-1",
-    title: "Organisations",
-    value: "2+",
-  },
-  {
-    id: "stats-2",
-    title: "Issues Opened",
-    value: "6+",
-  },
-  {
-    id: "stats-3",
-    title: "Pull Requests",
-    value: "6+",
-  },
-];
-
 // List out the extra curricular activities you have indulged in like - student clubs, joining research groups etc.
 export const extraCurricular = [
   {
@@ -337,13 +289,3 @@ export const aboutMe = {
   tagLine: "",
   intro: "",
 };
-
-// The maximum number of PRs to be displayed in the Open Source Contributions section.
-export const itemsToFetch = 20;
-
-// Add names of GitHub repos you'd like to display open source contributions from in the 'org/repo' format.
-export const includedRepos = [
-  "publiclab/plots2",
-  "zulip/zulip",
-  "paritytech/polkadot-sdk",
-];

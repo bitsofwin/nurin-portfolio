@@ -2,23 +2,31 @@ import React from "react";
 import Button from "./Button";
 import { socialMedia, aboutMe } from "../constants";
 import { profilePic } from "../assets";
-import { layout } from "../style";
-import { resumeLink, repoLink } from "../constants";
+import { resumeLink } from "../constants";
 import { AiFillGithub } from "react-icons/ai";
 
 const Footer = () => (
-  <footer id="contactMe" className="bg-gray-900 sm:px-16 px-6">
-    <div
-      className={`${layout.sectionReverse} xl:max-w-[1280px] w-full mx-auto gap-y-4 `}
-    >
-      <div className={` ${layout.sectionInfo}`}>
-        <h2 className="text-xl font-bold text-gray-800 font-poppins dark:text-white hover:text-gray-700 dark:hover:text-gray-300">
+  <footer id="contactMe" className="bg-vintage-brown py-10">
+    <div className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start w-full gap-y-8 md:gap-x-5">
+      
+      {/* Right Section - Image (on top for mobile) */}
+      <div className="flex-shrink-0 pr-0 md:pr-10 group order-1 md:order-2">
+        <div className="relative w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-yellow-300 to-yellow-500 p-1 group-hover:shadow-yellow-500 group-hover:shadow-2xl transition-all duration-500">
+          <img
+            src={profilePic}
+            alt="Nurin Ilyana"
+            className="w-full h-full object-cover rounded-full border-4 border-yellow"
+          />
+        </div>
+      </div>
+
+      {/* Left Section - Text, Icons, Button */}
+      <div className="flex flex-col items-center md:items-start justify-center pl-0 md:pl-10 mt-7 order-2 md:order-1">
+        <h2 className="text-3xl font-bold text-white font-poppins hover:text-yellow-200 transition duration-300">
           {aboutMe.name}
         </h2>
-        <p
-          className={`font-poppins font-normal text-dimWhite text-[16px] leading-[30.8px] max-w-[470px] mt-5`}
-        >
-        {aboutMe.tagLine}
+        <p className="font-poppins font-normal text-dimWhite text-[20px] leading-[34px] max-w-[540px] mt-5 text-center md:text-left">
+          {aboutMe.tagLine}
         </p>
         <div className="flex flex-row mt-4">
           {socialMedia.map((social, index) => (
@@ -26,41 +34,23 @@ const Footer = () => (
               href={social.link}
               target="_blank"
               key={social.id}
-              index={index}
-              className="text-white mr-5 text-[25px] hover:text-teal-200"
+              className="text-white mr-5 text-[30px] hover:text-yellow-200 transition duration-300"
             >
               {React.createElement(social.icon)}
             </a>
           ))}
         </div>
 
-        <div className="grid grid-cols-2">
-          {/* styles is a prop */}
+        <div className="mt-10">
           <a href={resumeLink} target="_blank">
-            <Button styles="mt-10 mr-3 inline-flex items-center justify-center" text="Resume" icon={AiFillGithub} />
-          </a>
-          <a href={repoLink} target="_blank">
             <Button
-              styles="mt-10 inline-flex items-center justify-center"
-              text="Star"
+              styles="inline-flex items-center justify-center bg-yellow-300 text-black font-semibold py-4 px-8 rounded-full shadow-md hover:bg-yellow-400 hover:scale-105 hover:shadow-lg transition transform duration-300 text-lg"
+              text="Resume"
               icon={AiFillGithub}
             />
           </a>
         </div>
       </div>
-
-      <div className="md:ml-auto mt-10 md:mt-0">
-        <img
-          src={profilePic}
-          alt="Parth Mittal"
-          className="w-[200px] h-[200px] border-2 border-teal-200 relative z-[5] rounded-full"
-        />
-      </div>
-    </div>
-    <div className="text-center font-poppins font-normal text-dimWhite text-xs sm:text-sm pb-4">
-      <p>
-        Made with 💙 by Parth Mittal & the Open Source Community
-      </p>
     </div>
   </footer>
 );

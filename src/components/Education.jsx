@@ -25,38 +25,35 @@ const FeatureCard = ({
   index,
 }) => (
   <div
-    className={`flex flex-col xs:flex-row items-center xs:items-start p-6 rounded-[20px] feature-card ${
-      index === educationList.length - 1 ? "mb-0" : "mb-6"
-    }`}
+    className={`flex flex-row p-6 rounded-[20px]
+  ${index === educationList.length - 1 ? "mb-0" : "mb-6"} feature-card`}
   >
-    {/* Logo centered on top for mobile, left for desktop */}
     <div
-      className={`w-[80px] h-[80px] rounded-full ${styles.flexCenter} bg-dimBlue mb-3 xs:mb-0 xs:mr-4`}
+      className={`w-[80px] h-[80px] rounded-full ${styles.flexCenter} bg-dimBlue`}
     >
       <img src={icon} alt="icon" className="w-[80%] h-[80%] object-contain" />
     </div>
-    <div className="flex-1 flex flex-col">
-      {/* Title centered on mobile, left on desktop */}
-      <h4 className="font-poppins font-semibold text-white text-[20px] leading-[30px] mb-1 text-gradient text-center xs:text-left">
+    <div className="flex-1 flex flex-col ml-4">
+      <h4 className="font-poppins font-semibold text-white text-[20px] leading-[30px] mb-1 text-gradient">
         {title}
       </h4>
-      {/* All other text left-aligned */}
-      <p className="font-poppins font-normal text-white text-[16px] leading-[30px] mb-1 text-left">
+      <p className="font-poppins font-normal text-white text-[16px] leading-[30px] mb-1 ">
         {degree}
       </p>
-      {cgpa && (
-        <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1 text-left">
+      {/* Add CGPA display here, adjust styling as needed */}
+      {cgpa && ( // This ensures it only shows if cgpa exists
+        <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1">
           CGPA: {cgpa}
         </p>
       )}
-      <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1 text-left">
+      <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1">
         {duration}
       </p>
-      <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1 text-left">
+      <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1">
         ● {content1}
       </p>
       {content2 && (
-        <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1 text-left">
+        <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1">
           ● {content2}
         </p>
       )}

@@ -152,7 +152,7 @@ export const educationList = [
   {
     id: "education-2",
     icon: kmkt,
-    title: "Kolej Matrikulasi Kelantan",
+    title: "Kolej Matrikulasi Kelantan (KMKt)",
     degree: "Matriculation in Computer Science",
     cgpa: "3.67",
     duration: "July 2021 - May 2022",

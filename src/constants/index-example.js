@@ -85,7 +85,7 @@ import { DiCss3, DiJava, DiMsqlServer, DiRuby } from "react-icons/di";
 
 export const resumeLink = "";
 export const callToAction = "https://www.linkedin.com/in/nurinilyana82/";
-export const repoLink = "https://github.com/Nurinnnn12/nurin-portfolio";
+export const repoLink = "https://github.com/nurindev/nurin-portfolio";
 
 export const navLinks = [
   {

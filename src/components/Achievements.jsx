@@ -92,7 +92,7 @@ const Achievements = () => {
                 />
               ))}
             </div>
-            <div className="flex justify-end mb-4">
+            <div className="flex justify-center items-center gap-4 mb-4 w-full">
               <button
                 onClick={handlePrev}
                 disabled={isPrevDisabled}
@@ -114,31 +114,29 @@ const Achievements = () => {
       {/* Popup Modal */}
       {popupImages && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 transition-all duration-500 animate-fadeIn"
           onClick={closePopup}
         >
           <div className="relative flex flex-col items-center" onClick={e => e.stopPropagation()}>
+            <button
+              onClick={handlePopupPrev}
+              disabled={popupImgIndex === 0}
+              className="absolute left-2 top-1/2 -translate-y-1/2 text-white text-4xl px-3 py-2 bg-black bg-opacity-40 rounded-full shadow-lg hover:bg-opacity-70 transition-all duration-200 disabled:opacity-50 z-10"
+            >
+              &#8592;
+            </button>
             <img
               src={popupImages[popupImgIndex]}
               alt="Achievement"
-              className="max-w-[90vw] max-h-[80vh] rounded-lg shadow-2xl"
+              className="max-w-[90vw] max-h-[80vh] rounded-2xl shadow-2xl transition-all duration-500 animate-zoomIn"
             />
-            <div className="flex justify-between w-full mt-4">
-              <button
-                onClick={handlePopupPrev}
-                disabled={popupImgIndex === 0}
-                className="text-white text-3xl px-4 py-2 disabled:opacity-50"
-              >
-                &#8592;
-              </button>
-              <button
-                onClick={handlePopupNext}
-                disabled={popupImages && popupImgIndex === popupImages.length - 1}
-                className="text-white text-3xl px-4 py-2 disabled:opacity-50"
-              >
-                &#8594;
-              </button>
-            </div>
+            <button
+              onClick={handlePopupNext}
+              disabled={popupImages && popupImgIndex === popupImages.length - 1}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-white text-4xl px-3 py-2 bg-black bg-opacity-40 rounded-full shadow-lg hover:bg-opacity-70 transition-all duration-200 disabled:opacity-50 z-10"
+            >
+              &#8594;
+            </button>
             <button
               onClick={closePopup}
               className="absolute top-2 right-2 text-white text-2xl bg-black bg-opacity-50 rounded-full px-3 py-1"
@@ -155,31 +153,34 @@ const Achievements = () => {
 const AchievementCard = (props) => {
   return (
     <div
-      className="achievement-card feature-card flex-shrink-0 flex flex-col md:w-[400px] w-[320px] justify-around px-6 py-4 rounded-[20px] md:mr-10 mr-6 my-5 transition-colors duration-300 transform border hover:border-transparent dark:border-gray-700 dark:hover:border-transparent cursor-pointer"
+      className="achievement-card feature-card flex-shrink-0 flex flex-col md:w-[400px] w-[320px] justify-between px-6 py-4 rounded-[20px] md:mr-10 mr-6 my-5 transition-colors duration-300 transform border hover:border-transparent dark:border-gray-700 dark:hover:border-transparent cursor-pointer"
       onClick={props.onCardClick}
+      style={{ minHeight: 400, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
     >
-      <img
-        src={props.icon}
-        alt={props.event}
-        className="w-[45px] h-[45px] rounded-full mt-1 mb-1"
-      />
-      <div className="flex flex-col justify-end mt-4 mb-1">
-        <p className="font-poppins font-semibold text-xl text-lg text-gradient leading-[24px] mb-2">
-          {props.event}
-        </p>
-        <p className="font-poppins italic font-normal text-white mb-2">
+      <div className="flex flex-col flex-1 justify-start">
+        <div className="flex flex-col items-left text-left">
+          <img
+            src={props.icon}
+            alt={props.event}
+            className="w-[45px] h-[45px] rounded-full mt-3 mb-1"
+          />
+          <p className="font-poppins font-semibold text-xl text-lg text-gradient leading-[24px] mb-2 mt-3">
+            {props.event}
+          </p>
+        </div>
+        <p className="font-poppins italic font-normal text-white mb-2 text-left">
           {props.position}
         </p>
         {/* Duration always shown */}
         {props.duration && (
-          <p className="font-poppins font-normal text-[14px] text-dimWhite mb-2">
+          <p className="font-poppins font-normal text-[14px] text-dimWhite mb-2 text-left">
             {props.duration}
           </p>
         )}
         {/* Youtube icon under duration if present */}
         {props.youtube && (
           <a
-            className="inline-flex items-center mb-2 hover:text-yellow-200"
+            className="inline-flex items-center mb-2 hover:text-yellow-200 text-left"
             href={props.youtube}
             target="_blank"
             rel="noopener noreferrer"
@@ -188,19 +189,35 @@ const AchievementCard = (props) => {
           </a>
         )}
         {props.content1 && (
-          <p className="font-poppins font-normal text-dimWhite text-sm mb-1">
+          <p className="font-poppins font-normal text-dimWhite text-sm mb-1 text-left">
             🚀 {props.content1}
           </p>
         )}
-        {props.content2 && (
-          <p className="font-poppins font-normal text-dimWhite text-sm mb-1">
+        {props.content2 && !props.images && (
+          <p className="font-poppins font-normal text-dimWhite text-sm mb-1 text-left">
             ⚡ {props.content2}
           </p>
         )}
         {props.content3 && (
-          <p className="font-poppins font-normal text-dimWhite text-sm mb-4">
+          <p className="font-poppins font-normal text-dimWhite text-sm mb-4 text-left">
             🔥 {props.content3}
           </p>
+        )}
+      </div>
+      {/* Certificate button for all cards with images, always at the bottom, with margin for tally */}
+      <div className="flex justify-center mt-4 mb-2 min-h-[56px]">
+        {props.images && props.images.length > 0 && (
+          <button
+            className="inline-flex items-center justify-center bg-blue-gradient font-poppins font-medium text-[18px] text-black outline-none py-4 px-8 rounded-full shadow-md hover:bg-yellow-400 hover:scale-105 hover:shadow-lg transition transform duration-300 text-lg"
+            onClick={e => {
+              e.stopPropagation();
+              if (props.onCardClick) {
+                props.onCardClick();
+              }
+            }}
+          >
+            Certificate
+          </button>
         )}
       </div>
       <div className="flex flex-row mb-2 font-poppins font-normal text-dimWhite">

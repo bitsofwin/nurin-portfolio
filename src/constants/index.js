@@ -32,6 +32,9 @@ import {
   rghub,
   gdiid,
   webinar,
+  microsoft,
+  petronas,
+  coursera
 } from "../assets";
 
 import {
@@ -95,10 +98,17 @@ import { IconDeviconPlainMatlab } from "./IconDeviconPlainMatlab";
 
 import prideShowcase1 from "../assets/prideShowcase1.jpg";
 import prideShowcase2 from "../assets/prideShowcase2.jpg";
+import microsoftai from "../assets/microsoftai.png";
+import microsoftaz from "../assets/microsoftaz.png";
+import prosolve from "../assets/prosolve.jpg";
+import temiccert1 from "../assets/temiccert1.jpg";
+import temiccert2 from "../assets/temiccert2.jpg";
+import uiuxcert from "../assets/courseracert.jpg";
+import bdbcert from "../assets/bdbcert.jpg";
 
 export const resumeLink =
   "https://drive.google.com/file/d/1ZUsAZkMGIiLBr88erWux_hY32Hs_ogQ2/view?usp=sharing";
-export const repoLink = "https://github.com/Nurinnnn12/nurin-portfolio";
+export const repoLink = "https://github.com/nurindev/nurin-portfolio";
 
 export const callToAction = "https://www.linkedin.com/in/nurinilyana82/";
 
@@ -159,8 +169,7 @@ export const achievements = [
     icon: uitm,
     event: "Dean's List Award Semester 1-5",
     position: "Recipient",
-    content1: "Awarded Dean's List for outstanding academic performance in the first five semesters of degree program.",
-    youtube: "https://www.youtube.com/watch?v=vewgpbKnWfo&t=4s",
+    content1: "Awarded Dean's List for outstanding academic performance in the first five semesters of degree program."
   },
   {
     id: "a-2",
@@ -169,14 +178,61 @@ export const achievements = [
     position: "Best Video Award Winner",
     content1: "Proposed and presented “Hijabease,” an AI-powered portable ironing board concept; secured the Best Video Award.",
     images: [prideShowcase1, prideShowcase2],
+    content2: "Certificate"
   },
   {
     id: "a-3",
-    icon: gdiid,
-    event: "Graduate Digital Invention, Innovation and Design (GDIID) Competition 2025",
-    position: "Participant",
-    content1: "Presented an innovative product concept video for “Hijabease”, focusing on AI-based household solutions.",
-    youtube: "https://www.youtube.com/watch?v=vewgpbKnWfo&t=4s",
+    icon: uitm,
+    event: "ProSolve National Competition 2025 Certification",
+    position: "Recipient",
+    content1: "Participated in the ProSolve National Competition 2025, showcasing problem-solving skills.",
+    images: [prosolve],
+    content2: "Certificate"
+  },
+  {
+    id: "a-4",
+    icon: temic,
+    event: "TeMIC Conferences 2025 (ICECT | TEMIC 2025) Certification",
+    position: "Recipient",
+    content1: "Proposed research on 'Pattern Detection in Grid Clothes using Image Processing' at the conference.",
+    images: [temiccert1, temiccert2],
+    content2: "Certificate"
+  },
+  {
+    id: "a-5",
+    icon: petronas,
+    event: "PETRONAS BeDigital Bootcamp Certification 2025",
+    position: "Recipient",
+    content1: "Achieved PETRONAS BeDigital Bootcamp certification, gained new knowledge regarding digital transformation.",
+    images: [bdbcert],
+    content2: "Certificate"
+  },
+  {
+    id: "a-6",
+    icon: coursera,
+    event: "Coursera CalArts UI/UX Design Specialization Certification",
+    position: "Recipient",
+    content1: "Achieved Coursera CalArts UI/UX Design Specialization certification, learned about user interface and user experience design principles.",
+    images: [uiuxcert],
+    content2: "Certificate"
+  },
+  {
+    id: "a-7",
+    icon: microsoft,
+    event: "Microsoft AI for My Future Certification",
+    position: "Recipient",
+    content1: "Completed the  AI for My Future certification program, enchancing knowledge in AI applications in various fields.",
+    images: [microsoftai],
+    content2: "Certificate"
+  },
+  {
+    id: "a-8",
+    icon: microsoft,
+    event: "Microsoft Azure Data Fundamentals Certification",
+    position: "Recipient",
+    content1: "Achieved Microsoft Azure Data Fundamentals certification, learned about core data concepts and their applications in Azure.",
+    images: [microsoftaz],
+    content2: "Certificate"
   },
 ];
 
@@ -735,24 +791,19 @@ export const socialMedia = [
   {
     id: "social-media-2",
     icon: AiFillGithub,
-    link: "https://www.github.com/Nurinnnn12",
+    link: "https://www.github.com/nurindev",
   },
   {
     id: "social-media-3",
     icon: AiFillMail,
     link: "mailto:nurinilyana82@gmail.com",
-  },
-  {
-    id: "social-media-5",
-    icon: AiFillInstagram,
-    link: "https://www.instagram.com/nrndzli",
-  },
+  }
 ];
 
 // Your professional summary
 export const aboutMe = {
   name: "Nurin Ilyana",
-  githubUsername: "Nurinnnn12",
+  githubUsername: "nurindev",
   tagLine:
     "Final-Year CS Student @UiTM | Aspiring UI/UX Designer",
   intro:

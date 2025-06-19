@@ -37,6 +37,9 @@ import temic from "./temic.png";
 import rghub from "./rghub.png";
 import gdiid from "./gdiid.png";
 import webinar from "./webinar.png";
+import microsoft from "./microsoft.png";
+import petronas from "./petronas.png";
+import coursera from "./coursera.png";
 
 export {
   menu,
@@ -77,5 +80,8 @@ export {
   rghub,
   placeholder,
   gdiid,
-  webinar
+  webinar,
+  microsoft,
+  petronas,
+  coursera
 };

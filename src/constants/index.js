@@ -147,7 +147,7 @@ export const educationList = [
     degree: "Bachelor of Computer Science (Hons.)",
     cgpa: "3.81",
     duration: "October 2022 - February 2026",
-    content1: "Machine Learning, Parallel Computing, Web Development, Database Management, Image Processing and Software Engineering.",
+    content1: "Related Coursework: Machine Learning, Parallel Computing, Web Development, Database Management, Image Processing and Software Engineering.",
   },
   {
     id: "education-2",

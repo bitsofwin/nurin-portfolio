@@ -84,7 +84,8 @@ const Education = () => {
           {/* gradient end */}
         </div>
 
-        <div className={`${layout.sectionInfo} flex-col`}>
+        {/* Add ml-[-32px] md:ml-[-64px] to shift all education elements to the left */}
+        <div className={`${layout.sectionInfo} flex-col ml-[-32px] md:ml-[-64px]`}>
           {educationList.map((feature, index) => (
             <FeatureCard key={feature.id} index={index} {...feature} />
           ))}

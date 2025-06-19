@@ -97,7 +97,6 @@ import { BiLogoVisualStudio } from "react-icons/bi";
 import { IconDeviconPlainMatlab } from "./IconDeviconPlainMatlab";
 
 import prideShowcase1 from "../assets/prideShowcase1.jpg";
-import prideShowcase2 from "../assets/prideShowcase2.jpg";
 import microsoftai from "../assets/microsoftai.png";
 import microsoftaz from "../assets/microsoftaz.png";
 import prosolve from "../assets/prosolve.jpg";
@@ -107,7 +106,7 @@ import uiuxcert from "../assets/courseracert.jpg";
 import bdbcert from "../assets/bdbcert.jpg";
 
 export const resumeLink =
-  "https://drive.google.com/file/d/1ZUsAZkMGIiLBr88erWux_hY32Hs_ogQ2/view?usp=sharing";
+  "https://drive.google.com/file/d/1G1bwPy-xeRQVr8_4ttE34gt5-1K-Gwu_/view?usp=sharing";
 export const repoLink = "https://github.com/nurindev/nurin-portfolio";
 
 export const callToAction = "https://www.linkedin.com/in/nurinilyana82/";
@@ -148,7 +147,7 @@ export const educationList = [
     degree: "Bachelor of Computer Science (Hons.)",
     cgpa: "3.81",
     duration: "October 2022 - February 2026",
-    content1: "Related Coursework: Dynamic Web Application Development, Object-Oriented Programming, Artificial Intelligence Algorithms, Image Processing, Software Engineering",
+    content1: "Machine Learning, Parallel Computing, Web Development, Database Management, Image Processing and Software Engineering.",
   },
   {
     id: "education-2",
@@ -158,7 +157,7 @@ export const educationList = [
     cgpa: "3.67",
     duration: "July 2021 - May 2022",
     content1:
-      "Selected for Jawatankuasa Perwakilan Pelajar (JPP), enhancing leadership, teamwork, and communication skills through campus-wide initiatives.",
+      "Involved in Jawatankuasa Perwakilan Pelajar (JPP) selection, enhancing leadership, teamwork, and communication skills through campus-wide initiatives.",
   },
 ];
 
@@ -177,7 +176,7 @@ export const achievements = [
     event: "UiTM PRIDE Showcase 10.0",
     position: "Best Video Award Winner",
     content1: "Proposed and presented “Hijabease,” an AI-powered portable ironing board concept; secured the Best Video Award.",
-    images: [prideShowcase1, prideShowcase2],
+    images: [prideShowcase1],
     content2: "Certificate"
   },
   {
@@ -258,26 +257,21 @@ export const skills = [
       },
       {
         id: "pl-4",
-        icon: SiMysql,
-        name: "SQL",
-      },
-      {
-        id: "pl-5",
         icon: AiFillHtml5,
         name: "HTML",
       },
       {
-        id: "pl-6",
+        id: "pl-5",
         icon: DiCss3,
         name: "CSS",
       },
       {
-        id: "pl-7",
+        id: "pl-6",
         icon: SiJavascript,
         name: "JavaScript",
       },
       {
-        id: "pl-8",
+        id: "pl-7",
         icon: SiPhp,
         name: "PHP",
       },
@@ -385,11 +379,7 @@ export const experiences = [
           {
             text: "Managed daily retail operations including stock handling, product tagging, cashier duties, and customer assistance.",
             link: "",
-          },
-          {
-            text: "Supported end-of-day store closing procedures, ensuring accuracy and accountability in transactions and inventory.",
-            link: "",
-          },
+          }
         ],
       },
     ],
@@ -403,11 +393,11 @@ export const experiences = [
         duration: "June 2019 - Dec 2019",
         content: [
           {
-            text: "Learned to prepare and serve various food items including waffles and popcorn. Handled customer orders, operated the cashier system and restocked ingredients. ",
+            text: "Learned to prepare and serve various food items including waffles and popcorn.",
             link: "",
           },
           {
-            text: "Gained hands-on experience in sales, teamwork, and customer service in a fast-paced food environment.",
+            text: "Gained hands-on experience in sales, teamwork, and customer service in a fast-paced food environment.",
             link: "",
           },
         ],
@@ -423,7 +413,7 @@ export const projects = [
     title: "Real-time Rice Leaf Diseases Detection System using YOLOv8",
     image: ultralytics,
     content:
-      "A final year project to develop a mobile application for real-time detection of rice leaf diseases, using YOLOv8 object detection models to aid Malaysian farmers in improving crop health",
+      "A final year project to develop a mobile app using YOLOv8 for real-time rice leaf diseases detection to aid Malaysian farmers in improving crop health.",
     stack: [
       {
         id: "icon-1",
@@ -447,7 +437,7 @@ export const projects = [
     title: "Pattern Detection in Grid Clothes using Image Processing ",
     image: temic,
     content:
-      "A group project to develop a MATLAB-based desktop app for textile pattern detection; research presented at UiTM TeMIC Conference and published in the JET journal.",
+      "A group project to develop a MATLAB desktop app to detect patterns in grid clothes implementing image processing techniques. Presented at TeMIC Conferences 2025 and co-authored the paper for the JET journal.",
     stack: [
       {
         id: "icon-1",
@@ -461,7 +451,7 @@ export const projects = [
     title: "RGHub: Rhythmic Gymnastic Scoring System",
     image: rghub,
     content:
-      "A group project to build a web-based scoring system using Java, NetBeans, and MVC architecture to streamline judging and competition management in rhythmic gymnastics events",
+      "A group project to build a web-based rhythmic gymnastic scoring system using Java and MVC architecture to assist coaches, judges and organizers.",
     stack: [
       {
         id: "icon-1",
@@ -757,7 +747,7 @@ export const extraCurricular = [
   {
     id: 3,
     organisation: "UiTM PRIDE Showcase 10.0",
-    title: "Co-Participant & Awardee",
+    title: "Participant & Awardee",
     duration: "2024",
     content: [
       {
@@ -807,7 +797,7 @@ export const aboutMe = {
   tagLine:
     "Final-Year CS Student @UiTM | Aspiring UI/UX Designer",
   intro:
-    "Computer Science student from UiTM Kuala Terengganu, constantly exploring the intersection of AI, software development, and real-world problem-solving. Whether refining detection models or crafting seamless user experiences, I enjoy turning ideas into impactful digital solutions.",
+    "A final-year Computer Science student at UiTM Kuala Terengganu, passionate about building and improving software systems. With hands-on experience in real-world projects, I enjoy solving problems through clean code and smart tech. I'm currently seeking an internship from 15 September to 19 December 2025.",
 };
 
 // The maximum number of PRs to be displayed in the Open Source Contributions section.

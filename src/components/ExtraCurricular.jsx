@@ -23,7 +23,7 @@ const Content = ({ text, link, youtube }) => {
           rel="noopener noreferrer"
           className="inline-flex items-center mb-2 group"
         >
-          <FaYoutube size="1.3rem" className="inline ml-1 text-white group-hover:text-yellow-200 transition-colors duration-200" />
+          <FaYoutube size="1.5rem" className="inline ml-1 text-white group-hover:text-yellow-200 transition-colors duration-200" />
         </a>
       )}
     </div>

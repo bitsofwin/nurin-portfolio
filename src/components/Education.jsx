@@ -25,23 +25,24 @@ const FeatureCard = ({
   index,
 }) => (
   <div
-    className={`flex flex-row p-6 rounded-[20px]
-  ${index === educationList.length - 1 ? "mb-0" : "mb-6"} feature-card`}
+    className={`flex flex-col xs:flex-row items-center xs:items-start p-6 rounded-[20px] feature-card ${
+      index === educationList.length - 1 ? "mb-0" : "mb-6"
+    }`}
   >
+    {/* Logo centered on top for mobile, left for desktop */}
     <div
-      className={`w-[80px] h-[80px] rounded-full ${styles.flexCenter} bg-dimBlue`}
+      className={`w-[80px] h-[80px] rounded-full ${styles.flexCenter} bg-dimBlue mb-3 xs:mb-0 xs:mr-4`}
     >
       <img src={icon} alt="icon" className="w-[80%] h-[80%] object-contain" />
     </div>
-    <div className="flex-1 flex flex-col ml-4">
+    <div className="flex-1 flex flex-col text-center xs:text-left">
       <h4 className="font-poppins font-semibold text-white text-[20px] leading-[30px] mb-1 text-gradient">
         {title}
       </h4>
       <p className="font-poppins font-normal text-white text-[16px] leading-[30px] mb-1 ">
         {degree}
       </p>
-      {/* Add CGPA display here, adjust styling as needed */}
-      {cgpa && ( // This ensures it only shows if cgpa exists
+      {cgpa && (
         <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1">
           CGPA: {cgpa}
         </p>

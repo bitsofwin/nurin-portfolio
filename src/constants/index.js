@@ -106,7 +106,7 @@ import uiuxcert from "../assets/courseracert.jpg";
 import bdbcert from "../assets/bdbcert.jpg";
 
 export const resumeLink =
-  "https://drive.google.com/file/d/1G1bwPy-xeRQVr8_4ttE34gt5-1K-Gwu_/view?usp=sharing";
+  "https://drive.google.com/file/d/1vlncQL1D46ypuV9l0h6nwCcUQT5r7l_M/view?usp=sharing";
 export const repoLink = "https://github.com/nurindev/nurin-portfolio";
 
 export const callToAction = "https://www.linkedin.com/in/nurinilyana82/";

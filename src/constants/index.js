@@ -797,7 +797,7 @@ export const aboutMe = {
   tagLine:
     "Final-Year CS Student @UiTM | Aspiring UI/UX Designer",
   intro:
-    "A final-year Computer Science student at UiTM Kuala Terengganu, passionate about building and improving software systems. With hands-on experience in real-world projects, I enjoy solving problems through clean code and smart tech. I'm currently seeking an internship from 15 September to 19 December 2025.",
+    "A final-year Computer Science student, passionate about building and improving software systems. With hands-on experience in real-world projects, I enjoy solving problems through clean code and smart tech. I'm currently seeking an internship from 15 Sept - 19 Dec 2025.",
 };
 
 // The maximum number of PRs to be displayed in the Open Source Contributions section.

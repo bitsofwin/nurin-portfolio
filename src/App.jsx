@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import styles from "./style";
@@ -24,8 +24,28 @@ const App = () => {
     }, 1200);
   }, []);
 
+  useEffect(() => {
+    // Disable right click
+    const handleContextMenu = (e) => e.preventDefault();
+    // Disable drag on images
+    const handleDragStart = (e) => {
+      if (e.target.tagName === "IMG") e.preventDefault();
+    };
+    // Disable copy
+    const handleCopy = (e) => e.preventDefault();
+
+    document.addEventListener("contextmenu", handleContextMenu);
+    document.addEventListener("dragstart", handleDragStart);
+    document.addEventListener("copy", handleCopy);
+
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+      document.removeEventListener("dragstart", handleDragStart);
+      document.removeEventListener("copy", handleCopy);
+    };
+  }, []);
+
   return (
-    // A div to wrap the entire application
     <div className="bg-primary w-full overflow-hidden">
       <AnimatePresence>
         {isLoading ? (

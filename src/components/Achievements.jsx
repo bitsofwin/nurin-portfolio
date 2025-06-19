@@ -4,6 +4,8 @@ import { achievements } from "../constants";
 import { AiFillGithub } from "react-icons/ai";
 import { FaYoutube } from "react-icons/fa";
 import { TiNews } from "react-icons/ti";
+import { IoMdClose } from "react-icons/io";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import styles from "../style";
 
 const Achievements = () => {
@@ -118,30 +120,50 @@ const Achievements = () => {
           onClick={closePopup}
         >
           <div className="relative flex flex-col items-center" onClick={e => e.stopPropagation()}>
-            <button
-              onClick={handlePopupPrev}
-              disabled={popupImgIndex === 0}
-              className="absolute left-2 top-1/2 -translate-y-1/2 text-white text-4xl px-3 py-2 bg-black bg-opacity-40 rounded-full shadow-lg hover:bg-opacity-70 transition-all duration-200 disabled:opacity-50 z-10"
-            >
-              &#8592;
-            </button>
+            {/* Left Arrow - only show if more than 1 image */}
+            {popupImages.length > 1 && (
+              <button
+                onClick={handlePopupPrev}
+                disabled={popupImgIndex === 0}
+                className={`absolute left-2 top-1/2 -translate-y-1/2 
+                  text-white text-4xl p-3 bg-black bg-opacity-30 rounded-full shadow-lg 
+                  transition-all duration-200 z-10
+                  ${popupImgIndex === 0 ? "opacity-30 cursor-not-allowed" : "opacity-60 hover:opacity-100"}
+                `}
+                aria-label="Previous image"
+              >
+                <FaChevronLeft />
+              </button>
+            )}
             <img
               src={popupImages[popupImgIndex]}
               alt="Achievement"
               className="max-w-[90vw] max-h-[80vh] rounded-2xl shadow-2xl transition-all duration-500 animate-zoomIn"
+              draggable={false}
+              style={{ userSelect: "none" }}
             />
-            <button
-              onClick={handlePopupNext}
-              disabled={popupImages && popupImgIndex === popupImages.length - 1}
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-white text-4xl px-3 py-2 bg-black bg-opacity-40 rounded-full shadow-lg hover:bg-opacity-70 transition-all duration-200 disabled:opacity-50 z-10"
-            >
-              &#8594;
-            </button>
+            {/* Right Arrow - only show if more than 1 image */}
+            {popupImages.length > 1 && (
+              <button
+                onClick={handlePopupNext}
+                disabled={popupImgIndex === popupImages.length - 1}
+                className={`absolute right-2 top-1/2 -translate-y-1/2 
+                  text-white text-4xl p-3 bg-black bg-opacity-30 rounded-full shadow-lg 
+                  transition-all duration-200 z-10
+                  ${popupImgIndex === popupImages.length - 1 ? "opacity-30 cursor-not-allowed" : "opacity-60 hover:opacity-100"}
+                `}
+                aria-label="Next image"
+              >
+                <FaChevronRight />
+              </button>
+            )}
+            {/* Close Button */}
             <button
               onClick={closePopup}
-              className="absolute top-2 right-2 text-white text-2xl bg-black bg-opacity-50 rounded-full px-3 py-1"
+              className="absolute top-3 right-3 text-white text-3xl bg-black bg-opacity-40 rounded-full p-2 shadow-lg opacity-60 hover:opacity-100 transition-all duration-200 z-20"
+              aria-label="Close"
             >
-              &times;
+              <IoMdClose />
             </button>
           </div>
         </div>

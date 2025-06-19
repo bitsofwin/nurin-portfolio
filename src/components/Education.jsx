@@ -35,26 +35,28 @@ const FeatureCard = ({
     >
       <img src={icon} alt="icon" className="w-[80%] h-[80%] object-contain" />
     </div>
-    <div className="flex-1 flex flex-col text-center xs:text-left">
-      <h4 className="font-poppins font-semibold text-white text-[20px] leading-[30px] mb-1 text-gradient">
+    <div className="flex-1 flex flex-col">
+      {/* Title centered on mobile, left on desktop */}
+      <h4 className="font-poppins font-semibold text-white text-[20px] leading-[30px] mb-1 text-gradient text-center xs:text-left">
         {title}
       </h4>
-      <p className="font-poppins font-normal text-white text-[16px] leading-[30px] mb-1 ">
+      {/* All other text left-aligned */}
+      <p className="font-poppins font-normal text-white text-[16px] leading-[30px] mb-1 text-left">
         {degree}
       </p>
       {cgpa && (
-        <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1">
+        <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1 text-left">
           CGPA: {cgpa}
         </p>
       )}
-      <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1">
+      <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1 text-left">
         {duration}
       </p>
-      <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1">
+      <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1 text-left">
         ● {content1}
       </p>
       {content2 && (
-        <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1">
+        <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1 text-left">
           ● {content2}
         </p>
       )}

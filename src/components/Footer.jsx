@@ -3,7 +3,7 @@ import Button from "./Button";
 import { socialMedia, aboutMe } from "../constants";
 import { profilePic } from "../assets";
 import { resumeLink } from "../constants";
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillGithub, AiOutlinePaperClip } from "react-icons/ai";
 
 const Footer = () => (
   <footer id="contactMe" className="bg-vintage-brown py-8">
@@ -46,7 +46,7 @@ const Footer = () => (
             <Button
               styles="inline-flex items-center justify-center bg-yellow-300 text-black font-semibold py-2 px-6 rounded-full shadow-md hover:bg-yellow-400 hover:scale-105 hover:shadow-lg transition transform duration-300 text-base"
               text="Resume"
-              icon={AiFillGithub}
+              icon={AiOutlinePaperClip}
             />
           </a>
         </div>

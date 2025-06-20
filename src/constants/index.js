@@ -104,6 +104,11 @@ import temiccert1 from "../assets/temiccert1.jpg";
 import temiccert2 from "../assets/temiccert2.jpg";
 import uiuxcert from "../assets/courseracert.jpg";
 import bdbcert from "../assets/bdbcert.jpg";
+import dean1 from "../assets/dean1.jpg";
+import dean2 from "../assets/dean2.jpg";
+import dean3 from "../assets/dean3.jpg";
+import dean4 from "../assets/dean4.jpg";
+import dean5 from "../assets/dean5.jpg";
 
 export const resumeLink =
   "https://drive.google.com/file/d/1nxOF0LCZMLBLKTNL5XGR6huf_gm1Wk63/view?usp=sharing";
@@ -168,7 +173,9 @@ export const achievements = [
     icon: uitm,
     event: "Dean's List Award Semester 1-5",
     position: "Recipient",
-    content1: "Awarded Dean's List for outstanding academic performance in the first five semesters of degree program."
+    content1: "Awarded Dean's List for outstanding academic performance in the first five semesters of degree program.",
+    images: [dean1, dean2, dean3, dean4, dean5],
+    content2: "Certificate"
   },
   {
     id: "a-2",

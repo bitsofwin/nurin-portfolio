@@ -41,6 +41,7 @@ const Footer = () => (
           ))}
         </div>
 
+        {/* Resume Button
         <div className="mt-7">
           <a href={resumeLink} target="_blank" rel="noopener noreferrer">
             <Button
@@ -49,7 +50,7 @@ const Footer = () => (
               icon={AiOutlinePaperClip}
             />
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   </footer>

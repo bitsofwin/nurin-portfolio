@@ -110,8 +110,8 @@ import dean3 from "../assets/dean3.jpg";
 import dean4 from "../assets/dean4.jpg";
 import dean5 from "../assets/dean5.jpg";
 
-export const resumeLink =
-  "https://drive.google.com/file/d/1nxOF0LCZMLBLKTNL5XGR6huf_gm1Wk63/view?usp=sharing";
+/* export const resumeLink =
+  "https://drive.google.com/file/d/1nxOF0LCZMLBLKTNL5XGR6huf_gm1Wk63/view?usp=sharing"; */
 export const repoLink = "https://github.com/nurindev/nurin-portfolio";
 
 export const callToAction = "https://www.linkedin.com/in/nurinilyana82/";

@@ -802,7 +802,7 @@ export const aboutMe = {
   name: "Nurin Ilyana",
   githubUsername: "nurindev",
   tagLine:
-    "Final-Year CS Student @UiTM | Aspiring UI/UX Designer",
+    "Final-Year CS Student @UiTM | Aspiring Software Developer",
   intro:
     "A final-year Computer Science student, passionate about building and improving software systems. With hands-on experience in real-world projects, I enjoy solving problems through clean code and smart tech. I'm currently seeking an internship from 15 Sept - 19 Dec 2025.",
 };
